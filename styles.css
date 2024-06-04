@@ -1,0 +1,182 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #ffe6e6;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: #fff0f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 2px solid #ff66b2;
+    z-index: 1;
+    max-width: 90%; /* Maksimal lebar 90% layar */
+    box-sizing: border-box; /* Sertakan padding dalam perhitungan lebar */
+}
+
+h1 {
+    font-size: 24px;
+    color: #ff66b2;
+}
+
+#yes-no-container {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100px; /* Lebar tombol */
+}
+
+#yes-btn {
+    background-color: #ff66b2;
+    color: white;
+}
+
+#no-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+#yes-btn:hover {
+    background-color: #ff99cc;
+}
+
+#no-btn:hover {
+    background-color: #ff6666;
+}
+
+.hidden {
+    display: none;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.cat-container {
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.cat {
+    width: 80px; /* Lebar gambar dikurangi untuk perangkat seluler */
+    height: auto;
+    position: absolute;
+    top: 0;
+    animation: moveCat 6s linear infinite;
+    opacity: 0; /* Mulai dengan tidak terlihat */
+}
+
+@keyframes moveCat {
+    0% {
+        left: -100px;
+        opacity: 1; /* Tampilkan saat mulai bergerak */
+    }
+    100% {
+        left: calc(100% + 100px);
+        opacity: 0; /* Sembunyikan setelah keluar dari layar */
+    }
+}
+
+.cat:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.cat:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.cat:nth-child(3) {
+    animation-delay: 2.4s;
+}
+
+.cat:nth-child(4) {
+    animation-delay: 3.6s;
+}
+
+.cat:nth-child(5) {
+    animation-delay: 4.8s;
+}
+
+/* Fireworks CSS */
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: transparent;
+}
+
+/* Love CSS */
+.love {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background: url('love.gif') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    animation: rise 5s infinite ease-in-out;
+}
+
+@keyframes rise {
+    0% {
+        transform: scale(0.5) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(-200px);
+        opacity: 0;
+    }
+}
+
+/* Hujan CSS */
+#rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998; /* Letakkan di bawah konten lain */
+}
+
+.raindrop {
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background-color: rgba(0, 0, 70, 0.5); /* Warna biru untuk efek hujan */
+    animation: rain 1s linear infinite; /* Animasi untuk membuat tetesan air jatuh */
+}
+
+@keyframes rain {
+    from {
+        transform: translateY(-10px); /* Mulai dari atas layar */
+        opacity: 0; /* Tetesan air transparan saat mulai */
+    }
+    to {
+        transform: translateY(100vh); /* Jatuh hingga ke bawah layar */
+        opacity: 1; /* Tetesan air menjadi terlihat saat jatuh */
+    }
+}
